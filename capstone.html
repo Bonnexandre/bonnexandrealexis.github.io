@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capstone — Penetration Test (Artemis, Inc.)</title>
+  <meta name="description" content="Penetration testing capstone project: reconnaissance, scanning, vulnerability analysis, threat assessment, and reporting." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">Bonnexandre Alexilien ALEXIS</div>
+    <nav class="navlinks">
+      <a href="index.html#projects">← Back to Projects</a>
+      <a href="#overview">Overview</a>
+      <a href="#methodology">Methodology</a>
+      <a href="#findings">Findings</a>
+      <a href="#deliverables">Deliverables</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero reveal">
+    <span class="tag">🧪 Penetration Testing Capstone</span>
+    <h1>Artemis, Inc. — Security Assessment & Reporting</h1>
+    <p class="subtitle">
+      A structured penetration test capstone covering reconnaissance, target identification, scanning,
+      vulnerability analysis, threat assessment, and professional reporting.
+    </p>
+
+    <div class="buttons">
+      <a class="btn primary" href="#findings">View Key Findings</a>
+      <a class="btn" href="#deliverables">View Deliverables</a>
+      <!-- Optional: add your GitHub link -->
+      <!-- <a class="btn" href="https://github.com/YOUR_REPO_LINK" target="_blank" rel="noopener">GitHub</a> -->
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section id="overview" class="reveal">
+    <h2>Overview</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Objective</h3>
+        <p>
+          Assess security posture and identify vulnerabilities that could enable unauthorized access,
+          privilege escalation, or data compromise — then provide clear remediation steps.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>What I Did</h3>
+        <ul>
+          <li>Reconnaissance (OSINT, domain/email reconnaissance)</li>
+          <li>Target identification + scanning</li>
+          <li>Vulnerability analysis and risk assessment</li>
+          <li>Threat assessment and prioritization</li>
+          <li>Executive summary + technical reporting</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Skills Demonstrated</h3>
+        <ul>
+          <li>Recon & enumeration methodology</li>
+          <li>Vulnerability identification & validation</li>
+          <li>Threat/risk rating and prioritization</li>
+          <li>Security writing (exec + technical audiences)</li>
+          <li>Remediation guidance and hardening mindset</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- QUICK FACTS -->
+  <section class="reveal">
+    <h2>Quick Facts</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Engagement Type</h3>
+        <p>Structured walkthrough penetration test (capstone format).</p>
+        <div class="badge-row">
+          <span class="badge">Recon</span>
+          <span class="badge">Scanning</span>
+          <span class="badge">Vuln Analysis</span>
+          <span class="badge">Threat Assessment</span>
+          <span class="badge">Reporting</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3>Tools (Examples)</h3>
+        <p class="muted">
+          (List only what you actually used.)
+        </p>
+        <ul>
+          <li>OSINT tools (Google dorks, ViewDNS, etc.)</li>
+          <li>Network scanning (e.g., Nmap)</li>
+          <li>Vulnerability scanning / validation (lab safe)</li>
+          <li>Documentation + reporting</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Deliverables</h3>
+        <ul>
+          <li>Executive Summary</li>
+          <li>Technical Report</li>
+          <li>Phase documentation (Recon → Reporting)</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section id="methodology" class="reveal">
+    <h2>Methodology</h2>
+    <p class="sectionLead">
+      A phased process designed to mirror real-world assessment workflows and professional reporting.
+    </p>
+
+    <div class="timeline">
+      <div class="card timeline-item">
+        <h3>Phase 1 — Reconnaissance</h3>
+        <p>Collected publicly available information (OSINT) to map potential attack surface.</p>
+      </div>
+
+      <div class="card timeline-item">
+        <h3>Phase 2 — Identify Targets & Run Scans</h3>
+        <p>Identified hosts/services and performed scanning/enumeration to discover exposure.</p>
+      </div>
+
+      <div class="card timeline-item">
+        <h3>Phase 3 — Identify Vulnerabilities</h3>
+        <p>Mapped weaknesses to risk and impact (misconfigurations, outdated services, app issues).</p>
+      </div>
+
+      <div class="card timeline-item">
+        <h3>Phase 4 — Threat Assessment</h3>
+        <p>Prioritized vulnerabilities based on likelihood + impact, and aligned to remediation.</p>
+      </div>
+
+      <div class="card timeline-item">
+        <h3>Phase 5 — Reporting</h3>
+        <p>Delivered executive and technical reporting with clear, actionable remediation steps.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINDINGS -->
+  <section id="findings" class="reveal">
+    <h2>Key Findings</h2>
+    <p class="sectionLead">
+      Below is a portfolio-safe summary. Detailed steps, evidence, and lab context live inside the deliverables.
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <div class="finding-top">
+          <h3>Remote Desktop Exposure</h3>
+          <span class="sev sev-high">HIGH</span>
+        </div>
+        <p>
+          RDP exposure increases attack surface and can enable brute force or exploitation
+          if patching/auth controls are weak.
+        </p>
+        <ul>
+          <li>Recommendation: restrict RDP access (VPN/jump host), enforce MFA, monitor auth events</li>
+          <li>Recommendation: patch and harden remote access settings</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="finding-top">
+          <h3>Oracle WebLogic Vulnerability</h3>
+          <span class="sev sev-high">HIGH</span>
+        </div>
+        <p>
+          Identified a known WebLogic RCE path (example: CVE-2020-14882) that can enable
+          remote compromise if unpatched.
+        </p>
+        <ul>
+          <li>Recommendation: apply vendor patch + verify version</li>
+          <li>Recommendation: limit management interfaces / segment network</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="finding-top">
+          <h3>Broken Access Control</h3>
+          <span class="sev sev-med">MEDIUM</span>
+        </div>
+        <p>
+          Access control weaknesses can allow users to access data/actions beyond their permissions.
+        </p>
+        <ul>
+          <li>Recommendation: enforce server-side authorization checks</li>
+          <li>Recommendation: implement least privilege + test role boundaries</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="finding-top">
+          <h3>SQL Injection Risk</h3>
+          <span class="sev sev-high">HIGH</span>
+        </div>
+        <p>
+          SQL injection can lead to data exfiltration, authentication bypass, or system compromise.
+        </p>
+        <ul>
+          <li>Recommendation: parameterized queries + input validation</li>
+          <li>Recommendation: WAF rules + error handling + logging</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="finding-top">
+          <h3>Outdated Apache (Privilege Escalation)</h3>
+          <span class="sev sev-med">MEDIUM</span>
+        </div>
+        <p>
+          Outdated server components increase risk (example: CVE-2019-0211 on Apache 2.4.25).
+        </p>
+        <ul>
+          <li>Recommendation: patch/upgrade to supported version</li>
+          <li>Recommendation: remove unused modules + tighten permissions</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <div class="finding-top">
+          <h3>General Hardening Gaps</h3>
+          <span class="sev sev-low">LOW</span>
+        </div>
+        <p>
+          Configuration improvements reduce blast radius even when vulnerabilities exist.
+        </p>
+        <ul>
+          <li>Recommendation: segment networks + limit admin interfaces</li>
+          <li>Recommendation: centralized logging + alerting for auth and privilege changes</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3>Recommended Remediation Priorities</h3>
+      <ol>
+        <li><strong>Patch critical services</strong> (WebLogic / exposed remote access components).</li>
+        <li><strong>Reduce exposure</strong> (RDP restrictions, segmentation, management interface controls).</li>
+        <li><strong>Fix application issues</strong> (SQLi + access control).</li>
+        <li><strong>Harden + monitor</strong> (logging, least privilege, baselines).</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section id="deliverables" class="reveal">
+    <h2>Deliverables</h2>
+    <p class="sectionLead">
+      Add the files to a folder like <code>capstone/</code> inside your website and link them here.
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <h3>Executive Summary</h3>
+        <p>A business-facing summary of objectives, outcomes, and key risks.</p>
+        <a class="project-link" href="capstone/Executive-Summary.pdf" target="_blank" rel="noopener">
+          Open Executive Summary →
+        </a>
+      </article>
+
+      <article class="card">
+        <h3>Technical Report</h3>
+        <p>Technical findings, evidence, and remediation guidance for IT/security teams.</p>
+        <a class="project-link" href="capstone/Technical-Report.pdf" target="_blank" rel="noopener">
+          Open Technical Report →
+        </a>
+      </article>
+
+      <article class="card">
+        <h3>Phase Documentation</h3>
+        <p>Recon → Scanning → Vulnerabilities → Threat Assessment → Reporting.</p>
+        <a class="project-link" href="capstone/phases.html">
+          Open Phase Summary Page →
+        </a>
+      </article>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h3>Portfolio Note (Safe Disclosure)</h3>
+      <p class="muted">
+        For portfolio safety, keep sensitive data sanitized (real IPs, credentials, exact exploit steps).
+        Show methodology, findings categories, and remediation impact instead.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> Bonnexandre Alexilien ALEXIS
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

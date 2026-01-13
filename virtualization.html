@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virtualization Lab — Oracle VirtualBox</title>
+  <meta name="description" content="Virtualization lab on Windows 11 Pro using VirtualBox: Ubuntu, Red Hat, Kali, Windows client VMs, and isolated lab networking." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">Bonnexandre Alexilien ALEXIS</div>
+    <nav class="navlinks" aria-label="Primary Navigation">
+      <a href="index.html#projects">← Back</a>
+      <a href="#overview">Overview</a>
+      <a href="#inventory">VM Inventory</a>
+      <a href="#screens">Screenshots</a>
+      <a href="#usecases">Use Cases</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="tag">🧪 Virtualization Lab</span>
+    <h1>Multi-OS Virtualization Lab (Oracle VirtualBox)</h1>
+    <p class="subtitle">
+      Built a multi-VM lab on Windows 11 Pro for IT administration practice, system testing,
+      and cybersecurity experimentation inside isolated environments.
+    </p>
+
+    <div class="buttons">
+      <a class="btn primary" href="#inventory">View VM Inventory</a>
+      <a class="btn" href="#screens">View Screenshots</a>
+      <!-- Replace with your repo if different -->
+      <a class="btn" href="https://github.com/Bonnexandre/custom-workstation-build/blob/main/virtualization-lab.md" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <h2>Overview</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Host System</h3>
+        <ul>
+          <li>Windows 11 Pro</li>
+          <li>Oracle VirtualBox</li>
+          <li>Hardware virtualization enabled (VT-x / Nested Paging)</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Purpose</h3>
+        <ul>
+          <li>System administration practice</li>
+          <li>Virtual networking experiments</li>
+          <li>Security labs and simulations</li>
+          <li>Safe testing without impacting host OS</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Networking Model</h3>
+        <p>
+          Uses NAT/Bridged/Internal Network modes depending on the VM.
+          This supports both internet access and isolated lab communication.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- INVENTORY -->
+  <section id="inventory">
+    <h2>VM Inventory</h2>
+    <p class="sectionLead">A clean list of your lab machines and what each one is used for.</p>
+
+    <div class="grid">
+      <article class="card">
+        <h3>Ubuntu (Admin VM)</h3>
+        <p><strong>Name:</strong> Alex_ubuntu</p>
+        <p class="muted">Linux administration, CLI practice, services.</p>
+        <ul>
+          <li>RAM: ~4 GB</li>
+          <li>Network: Bridged</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Ubuntu (Server VM)</h3>
+        <p><strong>Name:</strong> dbhost1</p>
+        <p class="muted">Server/backend host simulation.</p>
+        <ul>
+          <li>RAM: 2 GB</li>
+          <li>Network: NAT + Internal</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Red Hat (Enterprise Linux)</h3>
+        <p><strong>Name:</strong> rhhost1</p>
+        <p class="muted">Enterprise Linux fundamentals and server concepts.</p>
+        <ul>
+          <li>RAM: 4 GB</li>
+          <li>CPU: 2 vCPUs</li>
+          <li>Network: NAT + Internal</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Kali Linux</h3>
+        <p><strong>Name:</strong> kali-linux-2024.3</p>
+        <p class="muted">Cybersecurity tools and safe lab testing.</p>
+        <ul>
+          <li>RAM: 2 GB</li>
+          <li>Network: Bridged</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Windows 10 Client VM</h3>
+        <p><strong>Name:</strong> Bonnexandre</p>
+        <p class="muted">Windows client testing / workstation simulation.</p>
+      </article>
+
+      <article class="card">
+        <h3>Windows 10 Client VM</h3>
+        <p><strong>Name:</strong> Alexis</p>
+        <p class="muted">User workstation simulation.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section id="screens">
+    <h2>Screenshots</h2>
+    <p class="sectionLead">Proof of the environment and the running systems.</p>
+
+    <div class="card">
+      <div class="project-gallery">
+        <img src="images/virtualbox/vbox-overview.png" alt="VirtualBox VM list overview" />
+        <img src="images/virtualbox/kali-running.png" alt="Kali Linux VM running" />
+        <img src="images/virtualbox/ubuntu-running.png" alt="Ubuntu VM running" />
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section id="usecases">
+    <h2>Use Cases</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>IT Practice</h3>
+        <ul>
+          <li>Linux user + permissions practice</li>
+          <li>Service management + logs</li>
+          <li>Networking troubleshooting</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Security Practice</h3>
+        <ul>
+          <li>Safe testing in isolated environments</li>
+          <li>Security tool familiarity (Kali)</li>
+          <li>Blue-team and hardening exercises</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Admin / Lab Expansion</h3>
+        <ul>
+          <li>Add Active Directory lab later (Windows Server)</li>
+          <li>Segment networks for better isolation</li>
+          <li>Snapshots before changes</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> Bonnexandre Alexilien ALEXIS
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

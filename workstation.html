@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workstation Build — Hardware Deployment</title>
+  <meta name="description" content="Custom high-performance workstation build: planning, assembly, airflow, cabling, BIOS validation, and readiness for labs." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">Bonnexandre Alexilien ALEXIS</div>
+    <nav class="navlinks" aria-label="Primary Navigation">
+      <a href="index.html#projects">← Back</a>
+      <a href="#overview">Overview</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#validation">Validation</a>
+      <a href="#docs">Docs</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="tag">🖥️ IT Deployment Project</span>
+    <h1>Custom High-Performance Workstation Build</h1>
+    <p class="subtitle">
+      Planned, assembled, and validated a custom workstation like a real IT deployment:
+      hardware compatibility, airflow/cabling, POST/BIOS verification, and readiness for virtualization labs.
+    </p>
+
+    <div class="buttons">
+      <a class="btn primary" href="#validation">View Validation</a>
+      <a class="btn" href="#docs">Documentation</a>
+      <!-- Replace with your repo if different -->
+      <a class="btn" href="https://github.com/Bonnexandre/custom-workstation-build" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </section>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <h2>Overview</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Goal</h3>
+        <p>
+          Build a stable, high-performance workstation optimized for development, virtualization,
+          and cybersecurity labs.
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>What This Demonstrates</h3>
+        <ul>
+          <li>Hardware deployment workflow (parts → assembly → verification)</li>
+          <li>Troubleshooting & validation (POST/BIOS checks)</li>
+          <li>Thermals, airflow planning, and clean cabling</li>
+          <li>Deployment documentation with evidence (photos + checklists)</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Result</h3>
+        <ul>
+          <li>Successful assembly and first boot (POST)</li>
+          <li>Components verified in BIOS (CPU/RAM/storage/fans)</li>
+          <li>Ready for OS install + virtualization platform</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <h2>Build Gallery</h2>
+    <p class="sectionLead">Visual evidence of the build process (parts, progress, final boot).</p>
+
+    <div class="card">
+      <div class="project-gallery-pc">
+        <img src="images/workstation/01-parts.jpg" alt="Workstation parts laid out" />
+        <img src="images/workstation/02-inprogress.jpg" alt="Workstation build in progress" />
+        <img src="images/workstation/03-motherboard.jpg" alt="Final workstation build powered on" />
+        <img src="images/workstation/04-motherboard.jpg" alt="Final workstation build powered on" />
+         <img src="images/workstation/06-start.jpg" alt="Workstation parts laid out" />
+        <img src="images/workstation/05-final-build-on.jpg" alt="Final workstation build powered on" />
+      </div>
+
+      <!--
+      ========================================================================================
+      <p class="muted" style="margin-top:12px;">
+        Tip: Keep photos clear and remove anything sensitive (serial numbers, addresses, etc.).
+      </p>
+      =======================================================================================
+    -->
+    </div>
+  </section>
+
+  <!-- VALIDATION -->
+  <section id="validation">
+    <h2>Validation Checklist</h2>
+    <p class="sectionLead">
+      This is the same kind of verification flow used in workstation provisioning and desktop support.
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <h3>POST / BIOS Verification</h3>
+        <ul>
+          <li>System POST successful</li>
+          <li>CPU detected correctly</li>
+          <li>RAM detected correctly (capacity + speed)</li>
+          <li>Storage detected (SSD/HDD)</li>
+          <li>Fans detected + stable temps</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Thermals & Airflow</h3>
+        <ul>
+          <li>Correct fan orientation (intake/exhaust)</li>
+          <li>Clean airflow path (no cable blocking)</li>
+          <li>Case panels close without pressure</li>
+          <li>Baseline idle temperature recorded</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Readiness</h3>
+        <ul>
+          <li>UEFI boot mode enabled</li>
+          <li>Secure Boot supported</li>
+          <li>Ready for Windows 11 Pro installation</li>
+          <li>Prepared for virtualization labs</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- DOCS -->
+  <section id="docs">
+    <h2>Documentation</h2>
+    <p class="sectionLead">
+      Keep detailed documentation on GitHub; on your site, show the clean summary + evidence.
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <h3>Components + Build Log</h3>
+        <p>Parts list, build steps, and lessons learned.</p>
+        <a class="project-link" href="https://github.com/Bonnexandre/custom-workstation-build" target="_blank" rel="noopener">
+          Open GitHub documentation →
+        </a>
+      </article>
+
+      <article class="card">
+        <h3>Virtualization Lab</h3>
+        <p>How the workstation is used as an IT + cybersecurity lab.</p>
+        <a class="project-link" href="virtualization.html">
+          Open Virtualization Lab page →
+        </a>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  © <span id="year"></span> Bonnexandre Alexilien ALEXIS
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
