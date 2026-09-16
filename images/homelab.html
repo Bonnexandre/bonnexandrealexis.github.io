@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Lab Part 1: Physical Network Infrastructure — Bonnexandre A. ALEXIS</title>
+  <meta name="description" content="Physical design and deployment of a multi-gig home lab using pfSense, TP-Link Omada switching and Wi-Fi, NAS storage, IP surveillance, and UPS protection." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+  <div class="container nav">
+    <div class="brand"><a class="btn" href="index.html">Bonnexandre A. ALEXIS</a></div>
+    <nav class="navlinks" aria-label="Project navigation">
+      <a href="index.html#projects">← Back</a>
+      <a href="#objective">Objective</a>
+      <a href="#hardware">Hardware</a>
+      <a href="#topology">Topology</a>
+      <a href="#deployment">Deployment</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <span class="tag">🛠️ IT Infrastructure • Home Lab Part 1</span>
+    <h1>Physical Network Infrastructure</h1>
+    <p class="subtitle">Planned and assembled a reliable multi-gig home-lab foundation connecting firewall, switching, wireless, storage, surveillance, management, and lab equipment.</p>
+    <div class="badge-row" aria-label="Technologies and capabilities">
+      <span class="badge">2.5 GbE</span><span class="badge">Managed switching</span>
+      <span class="badge">Wi-Fi 6</span><span class="badge">NAS</span>
+      <span class="badge">IP surveillance</span><span class="badge">UPS protection</span>
+      <span class="badge">Structured cabling</span>
+    </div>
+  </section>
+
+  <section id="objective">
+    <h2>Project Objective</h2>
+    <div class="card"><p>The goal was to build a physical platform that could support everyday home devices, isolated cybersecurity experiments, centralized storage, IP cameras, guest access, and secure infrastructure management. The design prioritizes reliability, serviceability, wired multi-gig performance, wireless coverage, and future expansion.</p></div>
+  </section>
+
+  <!-- HARDWARE -->
+  <section id="hardware">
+    <h2>Hardware Inventory</h2>
+    <p class="sectionLead">Each component was selected for a specific infrastructure role.</p>
+    <div class="grid">
+
+      <!-- Firewall Appliance -->
+      <article class="card">
+        <h3>Firewall Appliance</h3><p><strong>Intel N100 mini PC running pfSense</strong></p><p>Four Intel i226 2.5 GbE interfaces provide dedicated connectivity and multi-gig routing capacity.</p>
+        <img class="project-thumb" src="images/network/firewall.jpg" alt="Intel N100 Firewall" />
+      </article>
+
+      <!-- Managed Switch -->
+      <article class="card">
+        <h3>Core Switch</h3><p><strong>TP-Link JetStream SG3218X-M2-series managed switch</strong></p><p>Acts as the wired distribution point for the firewall, access points, NAS, cameras, and workstations.</p>
+        <img class="project-thumb" src="images/network/omada_switch.jpg" alt="TP-Link Managed Switch" />
+      </article>
+
+      <!-- Hardware Controller -->
+      <article class="card">
+        <h3>Hardware Controller</h3><p><strong>TP-Link OC200</strong></p><p>centrally manage all my Omada devices — access points and switches from one unified interface.</p>
+        <img class="project-thumb" src="images/network/controller.jpg" alt="TP-Link OC200 Controller" />
+      </article>
+
+      <!-- Wireless Access Points -->
+      <article class="card">
+        <h3>Wireless Access</h3><p><strong>Two TP-Link EAP650 Wi-Fi 6 access points</strong></p><p>Separate AP placement provides broader coverage and dedicated wireless service for home and lab use.</p>
+        <img class="project-thumb" src="images/network/wireless.jpg" alt="TP-Link Wireless Access Point" />
+      </article>
+
+      <!-- Network Storage -->
+      <article class="card">
+        <h3>Network Storage</h3><p><strong>UGREEN DXP4800 Plus NAS</strong></p><p>Provides centralized storage, backups, and a recording destination for the surveillance system.</p>
+        <img class="project-thumb" src="images/network/nas.jpg" alt="UGREEN DXP4800 Plus NAS" />
+      </article>
+
+      <!-- Surveillance -->
+      <article class="card">
+        <h3>Surveillance</h3><p><strong>Reolink IP camera</strong></p><p>Connects through the managed network and records video to the NAS without requiring a separate recorder.</p>
+        <img class="project-thumb" src="images/network/camera.jpg" alt="Reolink IP Camera" />
+      </article>
+
+      <!-- Power Protection -->
+      <article class="card">
+        <h3>Power Protection</h3><p><strong>CyberPower OR500LCDRM1U UPS</strong></p><p>Protects core equipment from short outages and unstable power while supporting orderly shutdown planning.</p>
+        <img class="project-thumb" src="images/network/ups.jpg" alt="CyberPower OR500LCDRM1U UPS" />
+      </article>
+    </div>
+  </section>
+
+  <!-- TOPOLOGY -->
+  <section id="topology">
+    <h2>Physical Topology</h2>
+    <p class="sectionLead">The managed switch is the central distribution point for every wired infrastructure component.</p>
+    <div class="topology" role="img" aria-label="Internet connects to the pfSense firewall and managed switch. The switch connects to two wireless access points, a NAS, an IP camera, and management and lab devices.">
+      <div class="topology-node">Internet / ISP</div><div class="topology-arrow" aria-hidden="true">↓</div>
+      <div class="topology-node topology-node-primary">pfSense Firewall<br><small>Intel N100 • 4 × 2.5 GbE</small></div><div class="topology-arrow" aria-hidden="true">↓</div>
+      <div class="topology-node topology-node-primary">TP-Link Managed Switch<br><small>Central wired distribution</small></div>
+      <div class="topology-branches">
+        <div class="topology-node">EAP650 AP #1<br><small>Home Wi-Fi</small></div>
+        <div class="topology-node">EAP650 AP #2<br><small>Lab Wi-Fi</small></div>
+        <div class="topology-node">UGREEN NAS<br><small>Storage & recordings</small></div>
+        <div class="topology-node">Reolink Camera<br><small>Surveillance</small></div>
+        <div class="topology-node">Admin & Lab Devices<br><small>Management and testing</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPLOYMENT -->
+  <section id="deployment">
+    <h2>Deployment Process</h2>
+    <div class="timeline">
+      <article class="card timeline-item"><h3>1. Requirements and Equipment Planning</h3><p>Defined the wired, wireless, storage, surveillance, management, and lab requirements before selecting compatible multi-gig equipment.</p></article>
+      <article class="card timeline-item"><h3>2. Core Installation</h3><p>Connected the ISP handoff to the pfSense appliance and installed the managed switch as the core distribution layer.</p></article>
+      <article class="card timeline-item"><h3>3. Endpoint and AP Connections</h3><p>Connected both access points, the NAS, camera, management workstation, and lab equipment to planned switch ports.</p></article>
+      <article class="card timeline-item"><h3>4. Power and Cable Organization</h3><p>Placed critical infrastructure on UPS protection and organized cables so devices and connections could be identified, maintained, and expanded.</p></article>
+      <article class="card timeline-item"><h3>5. Physical Validation</h3><p>Verified power, Ethernet link status, negotiated speeds, device visibility, and access-point placement before beginning logical configuration.</p></article>
+    </div>
+  </section>
+
+  <!-- DESIGN DECISIONS -->
+  <section id="design-decisions">
+    <h2>Design Decisions</h2>
+    <div class="grid">
+      <article class="card"><h3>Centralized Switching</h3><p>A single managed-switch core simplifies cabling, troubleshooting, expansion, and later network segmentation.</p></article>
+      <article class="card"><h3>Two Access Points</h3><p>Using two APs improves physical coverage and allows home and lab wireless workloads to be served independently.</p></article>
+      <article class="card"><h3>Dedicated NAS</h3><p>Central storage supports backups and continuous camera recording while remaining available to approved systems.</p></article>
+    </div>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section id="outcomes">
+    <h2>Results and Skills Demonstrated</h2>
+    <div class="card"><ul>
+      <li>Built a working physical network foundation for multiple security zones and services.</li>
+      <li>Integrated firewall, switching, wireless, storage, surveillance, and power-protection systems.</li>
+      <li>Practiced hardware selection, device installation, cable planning, port mapping, and link validation.</li>
+      <li>Created a modular platform for virtualization, monitoring, security testing, and future expansion.</li>
+    </ul></div>
+    <p class="project-next"><strong>Next:</strong> Part 2 will document VLANs, addressing, DHCP, SSID mapping, firewall policy, inter-VLAN access, Suricata, pfBlockerNG, testing, and troubleshooting.</p>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer>© <span id="year"></span> Bonnexandre Alexilien ALEXIS</footer>
+<script src="script.js"></script>
+</body>
+</html>
