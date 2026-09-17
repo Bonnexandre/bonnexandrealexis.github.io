@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Lab Part 2: Network Segmentation & Security — Bonnexandre A. Alexis</title>
+  <meta name="description" content="Configuration of a six-VLAN home lab using pfSense, Omada, Kea DHCP, firewall policies, isolated cameras, protected NAS access, and network security monitoring." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header><div class="container nav"><a class="brand" href="index.html"><span class="brand-mark">BA</span><span>Bonnexandre Alexis</span></a><nav class="navlinks" aria-label="Project navigation"><a href="index.html#projects">← Projects</a><a href="#architecture">Architecture</a><a href="#vlans">VLANs</a><a href="#policy">Policy</a><a href="#troubleshooting">Troubleshooting</a></nav></div></header>
+  <main class="container">
+    <section class="hero">
+      <p class="tag">Network Security • Home Lab Part 2</p>
+      <h1>Network Segmentation & Security</h1>
+      <p class="subtitle">Designed and configured a segmented home network that separates trusted users, lab systems, cameras, storage, management interfaces, and guests while allowing only the communication each zone requires.</p>
+      <div class="badge-row"><span class="badge">pfSense</span><span class="badge">TP-Link Omada</span><span class="badge">802.1Q VLANs</span><span class="badge">Kea DHCP</span><span class="badge">Firewall policy</span><span class="badge">Suricata</span><span class="badge">pfBlockerNG</span><span class="badge">Wireshark</span></div>
+      <div class="buttons"><a class="btn primary" href="#vlans">View VLAN plan</a><a class="btn" href="homelab.html">View Part 1</a></div>
+    </section>
+
+    <section id="architecture"><p class="section-kicker">Architecture</p><h2>Security boundaries built around device purpose.</h2><div class="grid">
+      <article class="card"><h3>Routing & Enforcement</h3><p>pfSense provides WAN routing, NAT, DNS, DHCP, inter-VLAN routing, and policy enforcement through the LAN trunk.</p></article>
+      <article class="card"><h3>Switching & Wireless</h3><p>The managed Omada switch carries tagged VLAN traffic. Separate HOME and LAB SSIDs are delivered through their assigned EAP650 access points.</p></article>
+      <article class="card"><h3>Protected Services</h3><p>The NAS and cameras use dedicated networks. Explicit rules permit required recording and trusted-user access while reducing lateral movement.</p></article>
+    </div></section>
+
+    <section id="vlans"><p class="section-kicker">Addressing plan</p><h2>Six purpose-built network zones.</h2><div class="card table-wrap"><table class="network-table"><thead><tr><th>VLAN</th><th>Zone</th><th>Subnet</th><th>Primary purpose</th></tr></thead><tbody>
+      <tr><td>10</td><td>HOME</td><td>192.168.10.0/24</td><td>Trusted household devices and wireless printer</td></tr>
+      <tr><td>20</td><td>LAB</td><td>192.168.20.0/24</td><td>Virtual machines, servers, and technical testing</td></tr>
+      <tr><td>30</td><td>CAMERAS</td><td>192.168.30.0/24</td><td>Two Reolink Duo 3 PoE cameras</td></tr>
+      <tr><td>40</td><td>NAS</td><td>192.168.40.0/24</td><td>Centralized storage, backups, and camera recordings</td></tr>
+      <tr><td>50</td><td>MGMT</td><td>192.168.50.0/24</td><td>pfSense, switch, controller, and AP administration</td></tr>
+      <tr><td>60</td><td>GUEST</td><td>192.168.60.0/24</td><td>Internet access for visitors without internal access</td></tr>
+    </tbody></table></div></section>
+
+    <section><p class="section-kicker">Switching design</p><h2>Tagged trunks and dedicated access ports.</h2><div class="grid">
+      <article class="card"><h3>Firewall Trunk</h3><p>Switch port 18 carries VLANs 10, 20, 30, 40, 50, and 60 between the switch and pfSense.</p></article>
+      <article class="card"><h3>Access-Point Uplinks</h3><p>Ports 2 and 3 connect the EAP650 access points. Management uses VLAN 50 while wireless traffic is assigned to the appropriate VLAN.</p></article>
+      <article class="card"><h3>Wired Infrastructure</h3><p>Dedicated access-port profiles place the NAS, cameras, and management devices directly into their assigned security zones.</p></article>
+    </div></section>
+
+    <section id="policy"><p class="section-kicker">Access policy</p><h2>Permit required services; block unnecessary paths.</h2><div class="grid">
+      <article class="card"><h3>HOME</h3><ul><li>Internet access</li><li>Approved access to NAS services</li><li>Approved camera viewing and printer access</li><li>No infrastructure administration by default</li></ul></article>
+      <article class="card"><h3>CAMERAS</h3><ul><li>Restricted from initiating access to trusted user networks</li><li>Allowed to send recordings to the NAS</li><li>Only required camera and management services permitted</li></ul></article>
+      <article class="card"><h3>NAS</h3><ul><li>Accessible from authorized networks only</li><li>Service aliases simplify storage and camera-recording rules</li><li>Unnecessary lateral access is blocked</li></ul></article>
+      <article class="card"><h3>MGMT</h3><ul><li>Dedicated administration zone</li><li>Access to pfSense, switch, controller, APs, NAS, and cameras</li><li>Separated from ordinary user and guest traffic</li></ul></article>
+      <article class="card"><h3>LAB</h3><ul><li>Supports virtual machines and security exercises</li><li>Separated from production home devices</li><li>Controlled access added only when testing requires it</li></ul></article>
+      <article class="card"><h3>GUEST</h3><ul><li>Internet access</li><li>No access to private subnets</li><li>Isolated from trusted systems and infrastructure</li></ul></article>
+    </div></section>
+
+    <section id="troubleshooting"><p class="section-kicker">Troubleshooting</p><h2>Problems became evidence of practical network skills.</h2><div class="timeline">
+      <article class="card timeline-item"><h3>DHCP and VLAN Connectivity</h3><p>Traced missing leases and intermittent connectivity to tagging, trunk membership, PVID, and native-VLAN mismatches across pfSense and Omada.</p></article>
+      <article class="card timeline-item"><h3>Management Migration</h3><p>Investigated legacy VLAN 1 dependencies, moved infrastructure administration toward VLAN 50, and restored controller-to-AP connectivity after addressing changes.</p></article>
+      <article class="card timeline-item"><h3>Firewall and Service Validation</h3><p>Tested inter-VLAN rules for HOME, NAS, CAMERAS, and MGMT; used logs, connectivity tests, and packet capture to distinguish firewall issues from endpoint application issues.</p></article>
+      <article class="card timeline-item"><h3>Security-Control Tuning</h3><p>Evaluated Suricata behavior after legitimate management traffic was affected and adjusted the implementation approach to preserve availability while improving visibility.</p></article>
+    </div></section>
+
+    <section><p class="section-kicker">Outcome</p><h2>A working segmented environment with documented controls.</h2><div class="grid"><article class="card"><h3>Technical Result</h3><p>Home, lab, camera, NAS, management, and guest functions operate as separate zones with deliberate access paths.</p></article><article class="card"><h3>Operational Result</h3><p>The environment has a documented addressing scheme, switch-port design, service requirements, and troubleshooting history for repeatable changes.</p></article><article class="card"><h3>Skills Demonstrated</h3><p>Network design, VLAN trunking, firewall administration, DHCP, Wi-Fi segmentation, packet analysis, IDS/IPS evaluation, testing, and technical documentation.</p></article></div>
+      <p class="project-next"><strong>Related project:</strong> <a href="homelab.html">Home Lab Part 1 — Physical Network Infrastructure →</a></p>
+    </section>
+  </main>
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> Bonnexandre Alexilien Alexis</span><a href="index.html#projects">All projects</a></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>
