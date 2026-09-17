@@ -1,598 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- =========================================
-       BASIC META
-  ========================================== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bonnexandre A. ALEXIS — IT & Cybersecurity</title>
-  <meta name="description" content="IT & Cybersecurity Specialist portfolio of Bonnexandre A. ALEXIS." />
-
-  <!-- =========================================
-       CSS
-  ========================================== -->
+  <title>Bonnexandre A. Alexis | IT Support, Networking & Cybersecurity</title>
+  <meta name="description" content="Portfolio of Bonnexandre A. Alexis, a Tampa-based IT support and cybersecurity professional with hands-on networking, systems, and security experience." />
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Optional: small browser tab icon -->
-  <!-- <link rel="icon" href="images/favicon.ico" /> -->
 </head>
-
 <body>
-
-  <!-- =========================================
-       HEADER / NAVIGATION
-  ========================================== -->
-  <header>
+  <header class="site-header">
     <div class="container nav">
-      <!--modification to brand link i added a link to the index.html page and made it a button with class btn -->
-    <div class="brand"><a class="btn" class="btn" href="index.html">Bonnexandre A. ALEXIS</a></div>
-
-      <nav class="navlinks" aria-label="Primary Navigation">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
+      <a class="brand" href="index.html" aria-label="Bonnexandre Alexis home">
+        <span class="brand-mark">BA</span><span>Bonnexandre Alexis</span>
+      </a>
+      <nav class="navlinks" aria-label="Primary navigation">
+        <a href="#projects">Projects</a><a href="#skills">Skills</a>
+        <a href="#experience">Experience</a><a href="#credentials">Credentials</a>
+        <a class="nav-cta" href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-
-  <!-- =========================================
-       MAIN CONTENT
-  ========================================== -->
-  <main class="container">
-
-    <!-- =========================================
-         HERO
-    ========================================== -->
-    <section class="hero hero-grid">
-      <div class="hero-text">
-        <span class="tag">🛡️ IT & Cybersecurity Specialist</span>
-
-        <h1>Building secure, reliable systems<br />and solving real problems.</h1>
-
-        <p class="subtitle">
-          Hands-on IT and cybersecurity professional with experience in technical support,
-          networking, and system troubleshooting.
-        </p>
-
-        <div class="buttons">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
-          <a class="btn" href="#contact">Contact</a>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="status-dot"></span> Tampa, FL · Open to IT and security opportunities</p>
+          <h1>I build reliable systems and secure the networks behind them.</h1>
+          <p class="subtitle">IT support and cybersecurity professional with experience supporting 20+ healthcare facilities and hands-on projects in network segmentation, pfSense, Omada, virtualization, and security assessment.</p>
+          <div class="buttons">
+            <a class="btn primary" href="#projects">Explore my work</a>
+            <a class="btn" href="resume.pdf" target="_blank" rel="noopener">View résumé</a>
+            <a class="btn" href="mailto:abonnexandre@gmail.com">Email me</a>
+          </div>
+          <div class="proof-row" aria-label="Professional highlights">
+            <div><strong>20+</strong><span>Facilities supported</span></div>
+            <div><strong>3</strong><span>CompTIA certifications</span></div>
+            <div><strong>6</strong><span>Home-lab VLANs</span></div>
+          </div>
         </div>
-      </div>
-
-      <div class="hero-photo">
-        <img src="images/alexis.jpg" alt="Portrait of Bonexandre Alexilien ALEXIS" />
-      </div>
-    </section>
-
-
-    <!-- =========================================
-         ABOUT
-    ========================================== -->
-    <section id="about">
-      <h2>About Me</h2>
-
-      <div class="card">
-        <p>
-          I am an IT and cybersecurity professional with a strong foundation in computer science
-          and hands-on experience supporting users, systems, and networks in real production environments.
-          <br /><br />
-          I hold a Bachelor’s degree in Computer Science and industry certifications including
-          CompTIA A+, Network+, and Security+, along with cybersecurity training from the University
-          of South Florida.
-          <br /><br />
-          My experience includes IT support for healthcare organizations across multiple locations,
-          where reliability, security, and clear communication were critical.
-        </p>
-      </div>
-    </section>
-
-
-    <!-- =========================================
-         PROJECTS (All projects under ONE section)
-    ========================================== -->
-    <!-- =========================
-     PROJECTS
-     - Clean structure (no nested sections with same id)
-     - 3 main featured projects (Capstone, Workstation, Virtualization)
-     - Cybersecurity case studies preserved exactly as before
-========================= -->
-<section id="projects" class="reveal">
-  <h2>Projects</h2>
-  <p class="sectionLead">
-    A mix of IT deployment work, virtualization labs, and cybersecurity case studies.
-    Full documentation is available on GitHub.
-  </p>
-
-  <!-- =========================
-       FEATURED PROJECTS
-  ========================= -->
-  <h3 style="margin-top:18px;">Featured</h3>
-
-  <div class="grid">
-
-     <!-- Home Lab Part 1: Physical Infrastructure -->
-    <article class="card project">
-       <img class="project-thumb" src="images/network/rack.jpg" alt="Capstone project cover image" />
-      <div class="project-visual homelab-visual" role="img" aria-label="Physical home lab with pfSense, managed switch, wireless access points, NAS, cameras, and UPS protection">
-        <span>pfSense</span><span>2.5 GbE Switch</span><span>Wi-Fi 6</span><span>NAS + Cameras</span>
-      </div>
-
-      <div class="project-body">
-        <h3>Home Lab Part 1 — Physical Network Infrastructure</h3>
-        <p><strong>Infrastructure Planning, Installation & Integration</strong></p>
-        <p>
-          Planned and assembled a multi-gig physical network connecting firewall, managed
-          switching, Wi-Fi, storage, surveillance, management, and lab equipment.
-        </p>
-        <ul>
-          <li>Intel N100 pfSense appliance and TP-Link multi-gig managed switch</li>
-          <li>Two EAP650 Wi-Fi 6 APs, UGREEN NAS, and Reolink surveillance</li>
-          <li>Physical topology, cabling, port planning, and UPS protection</li>
-        </ul>
-
-        <a class="project-link" href="homelab.html">Open project page →</a>
-      </div>
-    </article>
-
-    <!-- 1) Capstone -->
-    <article class="card project">
-      <!-- OPTIONAL thumbnail (add later if you want) -->
-       <img class="project-thumb" src="images/capstone/cover.jpeg" alt="Capstone project cover image" />
-
-      <div class="project-body">
-        <h3>Penetration Testing Capstone — Artemis, Inc.</h3>
-        <p><strong>Recon → Scanning → Threat Assessment → Reporting</strong></p>
-        <p>
-          Structured walkthrough penetration test focusing on methodology, risk prioritization,
-          and professional reporting (executive + technical).
-        </p>
-        <ul>
-          <li>OSINT + target discovery + scanning</li>
-          <li>Vulnerability analysis + threat assessment</li>
-          <li>Clear remediation guidance + reporting</li>
-        </ul>
-
-        <a class="project-link" href="capstone.html">Open project page →</a>
-        <!-- Optional GitHub button -->
-        <!-- <a class="project-link" href="https://github.com/..." target="_blank" rel="noopener">GitHub →</a> -->
-      </div>
-    </article>
-
-    <!-- 2) Workstation Build -->
-    <article class="card project">
-      <img class="project-thumb" src="images/workstation/desk_b.jpg" alt="Custom workstation final build powered on" />
-
-      <div class="project-body">
-        <h3>Custom High-Performance Workstation Build</h3>
-        <p><strong>Hardware Deployment + Validation</strong></p>
-        <p>
-          Planned, assembled, and validated a custom workstation like an IT deployment:
-          compatibility checks, airflow/cabling, BIOS verification, and readiness for labs.
-        </p>
-
-        <!-- Mini gallery (keep if you want 3 images) -->
-        <div class="project-gallery">
-          <img src="images/workstation/01-parts.jpg" alt="Parts for workstation build">
-          <img src="images/workstation/02-inprogress.jpg" alt="Workstation build in progress">
-          <img src="images/workstation/05-final-build-on.jpg" alt="Final workstation build">
-        </div>
-
-        <a class="project-link" href="workstation.html">Open project page →</a>
-        <a class="project-link"
-           href="https://github.com/Bonnexandre/custom-workstation-build"
-           target="_blank" rel="noopener">
-          View on GitHub →
-        </a>
-      </div>
-    </article>
-
-    <!-- 3) Virtualization Lab -->
-    <article class="card project">
-      <img class="project-thumb" src="images/virtualbox/vbox-overview.png" alt="VirtualBox VM list overview" />
-
-      <div class="project-body">
-        <h3>Virtualization Lab (Oracle VirtualBox)</h3>
-        <p><strong>Multi-OS Lab Environment</strong></p>
-        <p>
-          Built a multi-VM lab on Windows 11 Pro using VirtualBox for IT admin practice,
-          testing, and cybersecurity experiments in isolated environments.
-        </p>
-
-        <ul>
-          <li>Ubuntu Admin VM (Alex_ubuntu)</li>
-          <li>Ubuntu Server VM (dbhost1)</li>
-          <li>Red Hat VM (rhhost1)</li>
-          <li>Kali Linux VM</li>
-          <li>Windows 10 VMs (Bonnexandre, Alexis)</li>
-        </ul>
-
-        <div class="project-gallery">
-          <img src="images/virtualbox/vbox-overview.png" alt="VirtualBox VM list overview">
-          <img src="images/virtualbox/kali-running.png" alt="Kali VM running">
-          <img src="images/virtualbox/ubuntu-running.png" alt="Ubuntu VM running">
-        </div>
-
-        <a class="project-link" href="virtualization.html">Open project page →</a>
-        <a class="project-link"
-           href="https://github.com/Bonnexandre/custom-workstation-build/blob/main/virtualization-lab.md"
-           target="_blank" rel="noopener">
-          View lab overview on GitHub →
-        </a>
-      </div>
-    </article>
-  </div>
-
-  <!-- =========================
-       CYBERSECURITY CASE STUDIES
-       (Your original 9 cards preserved)
-  ========================= -->
-  <h3 style="margin-top:24px;">Cybersecurity Case Studies</h3>
-  <p class="sectionLead">
-    Featured cybersecurity projects (summary view). Full documentation available on GitHub.
-  </p>
-
-  <div class="grid">
-    <!-- 1) Zero Trust -->
-    <article class="card project">
-      <!-- OPTIONAL thumbnail (add later) -->
-      <!-- <img class="project-thumb" src="images/cyber/zero-trust.jpg" alt="Zero Trust thumbnail" /> -->
-
-      <div class="project-body">
-        <h3>Zero Trust Architecture</h3>
-        <p><strong>Enterprise Security Design</strong></p>
-        <p>
-          Designed and analyzed a Zero Trust Architecture focused on identity-first security
-          and continuous verification.
-        </p>
-        <ul>
-          <li>IAM, MFA, FIDO2 & access control</li>
-          <li>Role-based & attribute-based access</li>
-          <li>Reduced breach impact & audit findings</li>
-        </ul>
-        <a class="project-link"
-           href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/architecture-governance/zero-trust-architecture.md"
-           target="_blank" rel="noopener">
-          View full analysis on GitHub →
-        </a>
-      </div>
-    </article>
-
-    <!-- 2) CIS Controls -->
-    <article class="card project">
-      <!-- <img class="project-thumb" src="images/cyber/cis-controls.jpg" alt="CIS Controls thumbnail" /> -->
-      <div class="project-body">
-        <h3>CIS Critical Security Controls</h3>
-        <p><strong>Governance & Risk Mitigation</strong></p>
-        <p>
-          Applied CIS Controls to real-world security scenarios including phishing, unpatched systems,
-          and unmanaged software.
-        </p>
-        <ul>
-          <li>CIS Controls v8 mapping</li>
-          <li>Policy-to-implementation analysis</li>
-          <li>Security awareness & asset control</li>
-        </ul>
-        <a class="project-link"
-           href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/architecture-governance/cis-critical-security-controls.md"
-           target="_blank" rel="noopener">
-          View full analysis on GitHub →
-        </a>
-      </div>
-    </article>
-
-    <!-- 3) System Hardening -->
-    <article class="card project">
-      <!-- <img class="project-thumb" src="images/cyber/system-hardening.jpg" alt="System hardening thumbnail" /> -->
-      <div class="project-body">
-        <h3>System Hardening & Endpoint Security</h3>
-        <p><strong>Attack Surface Reduction</strong></p>
-        <p>
-          Analyzed system hardening techniques to protect endpoints against cyber and physical threats.
-        </p>
-        <ul>
-          <li>OS patching & configuration</li>
-          <li>USB attack prevention</li>
-          <li>Third-party software risk</li>
-        </ul>
-        <a class="project-link"
-           href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/blue-team-defense/system-hardening.md"
-           target="_blank" rel="noopener">
-          View full analysis on GitHub →
-        </a>
-      </div>
-    </article>
-
-    <!-- 4) Security Monitoring (M&A) -->
-    <article class="card project">
-      <!-- <img class="project-thumb" src="images/cyber/security-monitoring.jpg" alt="Security monitoring thumbnail" /> -->
-      <div class="project-body">
-        <h3>Security Monitoring (M&A Case Study)</h3>
-        <p><strong>Blue Team & Enterprise Integration</strong></p>
-        <p>
-          Evaluated security monitoring challenges during a merger between two organizations with different
-          security maturity levels.
-        </p>
-        <ul>
-          <li>SIEM & monitoring strategy</li>
-          <li>Governance & PMO coordination</li>
-          <li>Data exposure risk reduction</li>
-        </ul>
-        <a class="project-link"
-           href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/blue-team-defense/security-monitoring-ma.md"
-           target="_blank" rel="noopener">
-          View full analysis on GitHub →
-        </a>
-      </div>
-    </article>
-
-    <!-- 5) Web App Remediation -->
-    <article class="card project">
-      <!-- <img class="project-thumb" src="images/cyber/owasp.jpg" alt="OWASP remediation thumbnail" /> -->
-      <div class="project-body">
-        <h3>Web Application Vulnerability Remediation</h3>
-        <p><strong>OWASP Top 10</strong></p>
-        <p>
-          Identified and remediated critical web vulnerabilities following OWASP best practices.
-        </p>
-        <ul>
-          <li>XSS, CSRF, SQL Injection</li>
-          <li>Sensitive data exposure</li>
-          <li>Logging & monitoring gaps</li>
-        </ul>
-        <a class="project-link"
-           href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/application-security/owasp-web-application-security.md"
-           target="_blank" rel="noopener">
-          View full analysis on GitHub →
-        </a>
-      </div>
-    </article>
-
-    <!-- 6) Auth & Injection -->
-    <article class="card project">
-      <!-- <img class="project-thumb" src="images/cyber/auth-injection.jpg" alt="Auth and injection thumbnail" /> -->
-      <div class="project-body">
-        <h3>Authentication & Injection Failures</h3>
-        <p><strong>OWASP Focused Analysis</strong></p>
-        <p>
-          Analyzed authentication weaknesses and injection flaws in a web application.
-        </p>
-        <ul>
-          <li>MFA & password policy gaps</li>
-          <li>Secure APIs & input validation</li>
-          <li>Access control improvements</li>
-        </ul>
-        <a class="project-link"
-           href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/application-security/authentication-injection-failures.md"
-           target="_blank" rel="noopener">
-          View full analysis on GitHub →
-        </a>
-      </div>
-    </article>
-
-    <!-- 7) MFA Bypass -->
-    <article class="card project">
-      <!-- <img class="project-thumb" src="images/cyber/mfa-bypass.jpg" alt="MFA bypass thumbnail" /> -->
-      <div class="project-body">
-        <h3>MFA Bypass & Social Engineering</h3>
-        <p><strong>Uber Incident Case Study</strong></p>
-        <p>
-          Analyzed a real-world breach involving MFA fatigue and social engineering techniques.
-        </p>
-        <ul>
-          <li>Identity-based attacks</li>
-          <li>Incident response actions</li>
-          <li>Strengthening MFA defenses</li>
-        </ul>
-        <a class="project-link"
-           href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/incident-response/mfa-bypass-social-engineering-uber.md"
-           target="_blank" rel="noopener">
-          View full analysis on GitHub →
-        </a>
-      </div>
-    </article>
-
-    <!-- 8) Crypto Failures -->
-    <article class="card project">
-      <!-- <img class="project-thumb" src="images/cyber/crypto-failures.jpg" alt="Crypto failures thumbnail" /> -->
-      <div class="project-body">
-        <h3>Cryptographic Failures</h3>
-        <p><strong>TLS & Encryption Analysis</strong></p>
-        <p>
-          Examined major cryptographic failures to understand root causes and security lessons learned.
-        </p>
-        <ul>
-          <li>Heartbleed & DROWN</li>
-          <li>TLS misconfiguration</li>
-          <li>Secure crypto implementation</li>
-        </ul>
-        <a class="project-link"
-           href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/application-security/cryptographic-failures.md"
-           target="_blank" rel="noopener">
-          View full analysis on GitHub →
-        </a>
-      </div>
-    </article>
-
-    <!-- 9) Pen Test Gone Wrong -->
-    <article class="card project">
-      <!-- <img class="project-thumb" src="images/cyber/pentest-ethics.jpg" alt="Pen test ethics thumbnail" /> -->
-      <div class="project-body">
-        <h3>Penetration Test Gone Wrong</h3>
-        <p><strong>Legal & Ethical Case Study</strong></p>
-        <p>
-          Reviewed a real penetration testing incident that resulted in legal consequences.
-        </p>
-        <ul>
-          <li>Rules of engagement failures</li>
-          <li>Authorization & scope issues</li>
-          <li>Professional and legal risk</li>
-        </ul>
-        <a class="project-link"
-           href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/incident-response/penetration-test-gone-wrong.md"
-           target="_blank" rel="noopener">
-          View full analysis on GitHub →
-        </a>
-      </div>
-    </article>
-  </div>
-</section>
-
-
-
-    <!-- =========================================
-         SKILLS
-    ========================================== -->
-    <section id="skills">
-      <h2>Skills</h2>
-
-      <div class="grid skills-grid">
-        <div class="card skill-card">
-          <h3><span class="skill-icon">🖥️</span> IT Support</h3>
-          <p>Troubleshooting, hardware/software, user support, ticketing</p>
-        </div>
-
-        <div class="card skill-card">
-          <h3><span class="skill-icon">🌐</span> Networking</h3>
-          <p>TCP/IP, DNS, DHCP, basic routing, connectivity troubleshooting</p>
-        </div>
-
-        <div class="card skill-card">
-          <h3><span class="skill-icon">🛡️</span> Cybersecurity</h3>
-          <p>Vulnerability assessment, security monitoring, access control, incident analysis</p>
-        </div>
-
-        <div class="card skill-card">
-          <h3><span class="skill-icon">🧰</span> Tools</h3>
-          <p>Windows, Linux, Active Directory, Nmap, Wireshark, SIEM concepts</p>
+        <div class="profile-card">
+          <img src="images/alexis.jpg" alt="Bonnexandre Alexilien Alexis" />
+          <div class="profile-meta"><strong>Bonnexandre A. Alexis</strong><span>IT Support · Networking · Cybersecurity</span></div>
         </div>
       </div>
     </section>
 
+    <section class="section section-intro" id="about">
+      <div class="container split-intro">
+        <div><p class="section-kicker">Professional profile</p><h2>Technical support experience backed by practical security work.</h2></div>
+        <p>I combine frontline troubleshooting with a security-first approach. My background includes user support, hardware and software troubleshooting, network deployment, server maintenance, backups, Active Directory, printers, and documentation across distributed healthcare sites. I hold a bachelor’s degree in computer science, CompTIA A+, Network+, and Security+, plus hands-on cybersecurity training from the University of South Florida.</p>
+      </div>
+    </section>
 
-    <!-- =========================================
-         CERTIFICATIONS
-    ========================================== -->
-    <section id="certifications">
-      <h2>Certifications</h2>
-      <p class="sectionLead">
-        Industry-recognized certifications and training that support my IT and cybersecurity foundation.
-      </p>
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-heading"><div><p class="section-kicker">Selected work</p><h2>Projects that demonstrate how I think and troubleshoot.</h2></div><p>Infrastructure, networking, security, and systems projects documented with objectives, implementation decisions, testing, and results.</p></div>
 
-      <div class="grid cert-grid">
-        <div class="card cert-card">
-          <div class="cert-top"><span class="cert-icon">🎓</span><h3>CompTIA A+</h3></div>
-          <p>Core IT support skills: troubleshooting, hardware, operating systems, and basic security.</p>
+        <div class="series-header"><span>Featured series</span><h3>Enterprise-Style Home Lab</h3><p>One environment, documented as two connected projects: the infrastructure I assembled and the secure network I configured on top of it.</p></div>
+        <div class="featured-grid">
+          <article class="project-card featured-card">
+            <div class="project-number">01 / Physical layer</div>
+            <img class="featured-project-image" src="images/homelab/rack.jpg" alt="Completed home-lab network rack with firewall, switching, NAS, UPS, PDU, and patch cabling" />
+            <div class="project-content">
+              <p class="project-type">IT Infrastructure</p><h3>Physical Network Infrastructure</h3>
+              <p>Planned and assembled a multi-gig platform integrating a pfSense appliance, managed PoE switching, an OC200 controller, two Wi-Fi 6 access points, NAS storage, two panoramic PoE cameras, wireless printing, UPS protection, and a PDU.</p>
+              <ul class="check-list"><li>Hardware selection and compatibility</li><li>Physical topology and port planning</li><li>Cabling, power, installation, and validation</li></ul>
+              <a class="text-link" href="homelab.html">View Part 1 <span>→</span></a>
+            </div>
+          </article>
+
+          <article class="project-card featured-card accent-card">
+            <div class="project-number">02 / Logical layer</div>
+            <div class="network-art security-art" aria-hidden="true"><span>VLANs</span><span>Firewall</span><span>IDS/IPS</span><span>DHCP</span></div>
+            <div class="project-content">
+              <p class="project-type">Network Security</p><h3>Network Segmentation & Security</h3>
+              <p>Configured six purpose-built VLANs with pfSense routing, Kea DHCP, Omada SSID mapping, least-privilege firewall rules, isolated cameras and guests, protected NAS access, and network threat controls.</p>
+              <ul class="check-list"><li>802.1Q trunks and access-port profiles</li><li>Inter-VLAN policy and service aliases</li><li>Troubleshooting, packet analysis, and validation</li></ul>
+              <a class="text-link" href="network-security.html">View Part 2 <span>→</span></a>
+            </div>
+          </article>
         </div>
 
-        <div class="card cert-card">
-          <div class="cert-top"><span class="cert-icon">🌐</span><h3>CompTIA Network+</h3></div>
-          <p>Networking fundamentals: TCP/IP, DNS, DHCP, troubleshooting, and network operations.</p>
+        <div class="project-grid secondary-projects">
+          <article class="project-card"><img class="project-image" src="images/capstone/cover.jpeg" alt="Artemis penetration-testing capstone cover" /><div class="project-content"><p class="project-type">Offensive Security</p><h3>Artemis Penetration-Test Capstone</h3><p>Performed reconnaissance, scanning, vulnerability analysis, risk prioritization, and professional executive and technical reporting.</p><a class="text-link" href="capstone.html">View case study <span>→</span></a></div></article>
+          <article class="project-card"><img class="project-image" src="images/workstation/05-final-build-on.jpg" alt="Completed custom workstation" /><div class="project-content"><p class="project-type">Hardware Deployment</p><h3>High-Performance Workstation</h3><p>Planned, assembled, and validated a custom workstation for development, virtualization, and cybersecurity labs.</p><a class="text-link" href="workstation.html">View build <span>→</span></a></div></article>
+          <article class="project-card"><img class="project-image" src="images/virtualbox/vbox-overview.png" alt="VirtualBox multi-OS lab overview" /><div class="project-content"><p class="project-type">Systems Administration</p><h3>Multi-OS Virtualization Lab</h3><p>Built Windows, Ubuntu, Red Hat, and Kali environments for administration, isolated networking, and safe security testing.</p><a class="text-link" href="virtualization.html">View lab <span>→</span></a></div></article>
         </div>
 
-        <div class="card cert-card">
-          <div class="cert-top"><span class="cert-icon">🛡️</span><h3>CompTIA Security+</h3></div>
-          <p>Security foundations: risk, threats, controls, secure architecture, and incident basics.</p>
-        </div>
-
-        <div class="card cert-card">
-          <div class="cert-top"><span class="cert-icon">🔐</span><h3>Certified Cybersecurity Analyst (USF)</h3></div>
-          <p>Hands-on cybersecurity training focused on practical analysis, frameworks, and reporting.</p>
-        </div>
-
-        <div class="card cert-card">
-          <div class="cert-top"><span class="cert-icon">💻</span><h3>Google IT Support Professional</h3></div>
-          <p>IT support fundamentals: troubleshooting workflow, systems, and customer support practices.</p>
+        <div class="case-study-block">
+          <div><p class="section-kicker">Security analysis library</p><h3>Nine focused cybersecurity case studies</h3><p>Research and applied analysis covering architecture, governance, blue-team defense, application security, incident response, and professional ethics.</p></div>
+          <div class="topic-list">
+            <a href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/architecture-governance/zero-trust-architecture.md" target="_blank" rel="noopener">Zero Trust Architecture</a>
+            <a href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/architecture-governance/cis-critical-security-controls.md" target="_blank" rel="noopener">CIS Controls v8</a>
+            <a href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/blue-team-defense/system-hardening.md" target="_blank" rel="noopener">System Hardening</a>
+            <a href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/blue-team-defense/security-monitoring-ma.md" target="_blank" rel="noopener">Security Monitoring</a>
+            <a href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/application-security/owasp-web-application-security.md" target="_blank" rel="noopener">OWASP Remediation</a>
+            <a href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/application-security/authentication-injection-failures.md" target="_blank" rel="noopener">Authentication & Injection</a>
+            <a href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/incident-response/mfa-bypass-social-engineering-uber.md" target="_blank" rel="noopener">MFA Bypass</a>
+            <a href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/application-security/cryptographic-failures.md" target="_blank" rel="noopener">Cryptographic Failures</a>
+            <a href="https://github.com/Bonnexandre/cybersecurity-portfolio/blob/main/incident-response/penetration-test-gone-wrong.md" target="_blank" rel="noopener">Pen-Test Ethics</a>
+          </div>
         </div>
       </div>
     </section>
 
-
-    <!-- =========================================
-         EXPERIENCE
-    ========================================== -->
-    <section id="experience">
-      <h2>Experience</h2>
-      <p class="sectionLead">
-        Relevant professional experience supporting users, systems, and secure operations.
-      </p>
-
-      <div class="grid exp-grid">
-        <article class="card exp-card">
-          <h3>IT Support Specialist — Healthcare Facilities (USAID Project)</h3>
-          <p class="exp-subtitle">Catholic Medical Mission Board (CMMB) • Haiti</p>
-          <ul>
-            <li>Provided IT support across 20+ hospitals and healthcare centers in multiple departments.</li>
-            <li>Troubleshot hardware/software issues, printers, and basic network connectivity problems.</li>
-            <li>Delivered user support and clear documentation to keep critical services running.</li>
-          </ul>
-        </article>
+    <section class="section skills-section" id="skills">
+      <div class="container"><div class="section-heading"><div><p class="section-kicker">Technical toolkit</p><h2>Skills aligned with support, networking, and junior security roles.</h2></div></div>
+        <div class="skills-grid">
+          <article><span>01</span><h3>IT Support</h3><p>Windows and Linux troubleshooting, hardware, software, printers, account support, ticket ownership, remote support, and technical documentation.</p></article>
+          <article><span>02</span><h3>Networking</h3><p>TCP/IP, DNS, DHCP, VLANs, routing, NAT, VPN, Wi-Fi, managed switches, pfSense, Omada, Wireshark, and Nmap.</p></article>
+          <article><span>03</span><h3>Cybersecurity</h3><p>Network segmentation, firewall policy, IDS/IPS, vulnerability assessment, endpoint hardening, access control, SIEM concepts, and incident analysis.</p></article>
+          <article><span>04</span><h3>Systems & Cloud</h3><p>Active Directory administration, server maintenance, backups, VirtualBox, Windows 11, Ubuntu, Red Hat, Kali Linux, and Azure fundamentals.</p></article>
+        </div>
       </div>
     </section>
 
-
-    <!-- =========================================
-         EDUCATION
-    ========================================== -->
-    <section id="education">
-      <h2>Education</h2>
-      <p class="sectionLead">Academic foundation and cybersecurity training.</p>
-
-      <div class="grid edu-grid">
-        <article class="card edu-card">
-          <h3>Bachelor’s Degree in Computer Science</h3>
-          <p class="edu-subtitle">École Supérieure d’Infotronique d’Haïti (ESIH)</p>
-        </article>
-
-        <article class="card edu-card">
-          <h3>Cybersecurity Training & Certificate</h3>
-          <p class="edu-subtitle">University of South Florida (USF)</p>
-        </article>
+    <section class="section" id="experience">
+      <div class="container"><div class="section-heading"><div><p class="section-kicker">Professional experience</p><h2>Supporting technology where reliability matters.</h2></div></div>
+        <article class="experience-card"><div class="experience-meta"><span>May 2021 — June 2022</span><span>Cap-Haïtien, Haiti</span></div><div><h3>IT Support Specialist</h3><p class="company">Catholic Medical Mission Board (CMMB) · USAID-supported healthcare project</p><ul><li>Supported users and technology across more than 20 hospitals and health centers in northern Haiti.</li><li>Deployed and maintained switches, routers, wireless access points, servers, backups, VoIP, and endpoint equipment.</li><li>Managed Active Directory accounts and resolved desktop, printer, application, and network-connectivity issues.</li><li>Maintained asset records, documented solutions, supported remote locations, and helped keep critical services available.</li></ul></div></article>
       </div>
     </section>
 
-
-    <!-- =========================================
-         CONTACT
-    ========================================== -->
-    <section id="contact">
-      <h2>Contact</h2>
-
-      <div class="card">
-        <p><strong>Email:</strong> <a href="mailto:abonnexandre@gmail.com">abonnexandre@gmail.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/bonnexandre-alexis" target="_blank" rel="noopener">linkedin.com/in/bonnexandre-alexis</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/bonnexandre" target="_blank" rel="noopener">github.com/bonnexandre</a></p>
-        <p><strong>Location:</strong> Tampa, FL — open to remote / hybrid</p>
+    <section class="section" id="credentials">
+      <div class="container credentials-grid">
+        <div><p class="section-kicker">Credentials</p><h2>Certified foundations. Continued hands-on practice.</h2></div>
+        <div class="credential-list"><div><strong>CompTIA A+</strong><span>IT operations and support</span></div><div><strong>CompTIA Network+</strong><span>Network infrastructure and troubleshooting</span></div><div><strong>CompTIA Security+</strong><span>Security operations and architecture</span></div><div><strong>USF Cybersecurity Program</strong><span>55 labs, 30 mini-projects, and capstone</span></div><div><strong>Bachelor’s in Computer Science</strong><span>École Supérieure d’Infotronique d’Haïti</span></div></div>
       </div>
     </section>
 
+    <section class="contact-section" id="contact">
+      <div class="container contact-card"><div><p class="section-kicker">Let’s connect</p><h2>Looking for an IT professional who understands both support and security?</h2><p>I am based in Tampa, Florida, and open to onsite, hybrid, and remote opportunities.</p></div><div class="contact-actions"><a class="btn primary" href="mailto:abonnexandre@gmail.com">abonnexandre@gmail.com</a><a class="btn" href="https://www.linkedin.com/in/bonnexandre-alexis" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="https://github.com/Bonnexandre" target="_blank" rel="noopener">GitHub</a></div></div>
+    </section>
   </main>
 
-
-  <!-- =========================================
-       FOOTER
-  ========================================== -->
-  <footer>
-    © <span id="year"></span> Bonnexandre Alexilien ALEXIS
-  </footer>
-
-  <!-- =========================================
-       SMALL JS
-  ========================================== -->
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> Bonnexandre Alexilien Alexis</span><a href="#top">Back to top ↑</a></div></footer>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-

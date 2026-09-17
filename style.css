@@ -1,386 +1,1219 @@
-/* =========================================
-   THEME / VARIABLES
-========================================= */
-:root{
-  --bg: #123478;
-  --panel: rgba(255,255,255,.06);
-  --panel2: rgba(255,255,255,.04);
-  --text: rgba(255,255,255,.92);
-  --muted: rgba(255,255,255,.72);
-  --border: rgba(255,255,255,.238);
-  --radius: 18px;
-  --max: 1100px;
+/* ================================================================
+   BONNEXANDRE ALEXIS — PORTFOLIO STYLES
+
+   This stylesheet controls the appearance of the homepage and all
+   project pages. Styles are organized by purpose so that a specific
+   part of the website can be found and updated quickly.
+
+   TABLE OF CONTENTS
+   01. Design tokens
+   02. Reset and base elements
+   03. Shared layout and typography
+   04. Header and navigation
+   05. Buttons and links
+   06. Homepage hero
+   07. Homepage sections
+   08. Project cards
+   09. Skills, experience, and credentials
+   10. Contact and footer
+   11. Shared project-page components
+   12. Home-lab topology and tables
+   13. Responsive styles
+================================================================ */
+
+/* ================================================================
+   01. DESIGN TOKENS
+
+   Reusable colors, sizes, spacing, corners, and shadows. Changing a
+   value here updates every rule that uses the related CSS variable.
+================================================================ */
+
+:root {
+  /*
+     Original portfolio color palette
+     The royal-blue background is part of the website's visual identity.
+  */
+  --color-text: rgba(255, 255, 255, 0.92);
+  --color-muted: rgba(255, 255, 255, 0.72);
+  --color-background: #123478;
+  --color-background-soft: #0f2c68;
+  --color-panel: rgba(255, 255, 255, 0.06);
+  --color-panel-secondary: rgba(255, 255, 255, 0.04);
+  --color-border: rgba(255, 255, 255, 0.238);
+  --color-accent: #50dcc8;
+  --color-accent-blue: #7aa0ff;
+  --color-focus: rgba(255, 255, 255, 0.6);
+
+  /* Maximum page width and standard spacing */
+  --content-width: 1180px;
+  --container-gutter: 40px;
+  --section-spacing: 90px;
+
+  /* Reusable corner sizes and card shadow */
+  --radius-small: 10px;
+  --radius-medium: 18px;
+  --radius-large: 26px;
+  --shadow-card: 0 24px 70px rgba(0, 0, 0, 0.28);
 }
 
-/* =========================================
-   RESET / BASE
-========================================= */
-*{ box-sizing: border-box; }
+/* ================================================================
+   02. RESET AND BASE ELEMENTS
 
-body{
+   Establishes consistent sizing, typography, colors, and default
+   behavior before component-specific styles are applied.
+================================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.55;
+  color: var(--color-text);
+  background: var(--color-background);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
 }
 
-a{ color: inherit; }
+body::before {
+  /* Fixed grid texture displayed softly behind the page content */
+  position: fixed;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
 
-/* Keyboard accessibility */
-a:focus-visible, .btn:focus-visible{
-  outline: 2px solid rgba(255,255,255,.6);
+a {
+  color: inherit;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--color-focus);
   outline-offset: 3px;
-  border-radius: 10px;
+  border-radius: 7px;
 }
 
-.container{
-  width: min(var(--max), calc(100% - 40px));
-  margin: auto;
+img {
+  display: block;
+  max-width: 100%;
 }
 
-section{ padding: 32px 0; }
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
 
-h1{
-  font-size: 40px;
+h1,
+h2,
+h3 {
+  line-height: 1.12;
+}
+
+h1 {
+  max-width: 830px;
+  margin: 20px 0 26px;
+  font-size: clamp(2.7rem, 6vw, 5.6rem);
+  letter-spacing: -0.055em;
+}
+
+h2 {
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  letter-spacing: -0.04em;
+}
+
+h3 {
+  font-size: 1.35rem;
+}
+
+p,
+ul {
+  color: var(--color-muted);
+}
+
+/* ================================================================
+   03. SHARED LAYOUT AND TYPOGRAPHY
+
+   Common page containers, headings, section spacing, cards, and
+   grids reused across the homepage and individual project pages.
+================================================================ */
+
+.container {
+  width: min(var(--content-width), calc(100% - var(--container-gutter)));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--section-spacing);
+}
+
+.section-kicker,
+.eyebrow,
+.project-type,
+.tag {
+  color: var(--color-accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.section-kicker {
+  margin-bottom: 12px;
+}
+
+.section-heading,
+.split-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 70px;
+}
+
+.section-heading {
+  margin-bottom: 38px;
+}
+
+.section-heading > p,
+.split-intro > p {
+  font-size: 1.04rem;
+}
+
+.section-heading > p {
+  max-width: 520px;
+}
+
+.subtitle {
+  max-width: 760px;
+  font-size: 1.18rem;
+}
+
+.sectionLead,
+.muted {
+  color: var(--color-muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: var(--color-panel);
+}
+
+/* ================================================================
+   04. HEADER AND NAVIGATION
+
+   Keeps the navigation visible while scrolling and styles the BA
+   logo, website name, navigation links, and Contact button.
+================================================================ */
+
+header,
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid rgba(123, 166, 255, 0.18);
+  background: rgba(11, 18, 32, 0.8);
+  backdrop-filter: blur(18px);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--color-text);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-small);
+  color: var(--color-accent);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+}
+
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.navlinks a {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.navlinks a:hover {
+  color: var(--color-text);
+}
+
+.navlinks .nav-cta {
+  padding: 9px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-small);
+}
+
+/* ================================================================
+   05. BUTTONS AND LINKS
+
+   Reusable styles for primary buttons, secondary buttons, project
+   links, hover effects, and keyboard interaction.
+================================================================ */
+
+.buttons,
+.contact-actions,
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.buttons {
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 10px 17px;
+  border: 1px solid var(--color-border);
+  border-radius: 11px;
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.025);
+  font-weight: 750;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  border-color: var(--color-accent-blue);
+  transform: translateY(-1px);
+}
+
+.btn.primary {
+  border-color: transparent;
+  color: #051018;
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-blue),
+    var(--color-accent)
+  );
+}
+
+.text-link {
+  display: inline-flex;
+  gap: 10px;
+  margin-top: 10px;
+  color: var(--color-text);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.text-link span {
+  color: var(--color-accent);
+  transition: transform 0.2s ease;
+}
+
+.text-link:hover span {
+  transform: translateX(4px);
+}
+
+.project-link {
+  display: inline-flex;
+  margin: 12px 16px 0 0;
+  color: var(--color-accent);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+/* ================================================================
+   06. HOMEPAGE HERO
+
+   Controls the first section recruiters see: the introduction,
+   profile photograph, availability indicator, and key statistics.
+================================================================ */
+
+.hero {
+  padding: 92px 0 70px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.55fr);
+  align-items: center;
+  gap: 70px;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 16px var(--color-accent);
+}
+
+.profile-card {
+  position: relative;
+  width: min(100%, 334px);
+  justify-self: center;
+}
+
+.profile-card::after {
+  content: none;
+}
+
+.profile-card img {
+  width: 100%;
+  aspect-ratio: 297 / 264;
+  border: 3px solid rgba(11, 18, 32, 0.72);
+  border-radius: 30%;
+  background: #00539c;
+  object-fit: cover;
+  object-position: center top;
+  box-shadow: 0 22px 44px rgba(0, 20, 70, 0.42);
+  filter: saturate(0.95);
+}
+
+.profile-meta {
+  display: none;
+}
+
+.profile-meta span {
+  color: var(--color-muted);
+  font-size: 0.83rem;
+}
+
+.proof-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 680px;
+  margin-top: 38px;
+  padding-top: 25px;
+  border-top: 1px solid var(--color-border);
+}
+
+.proof-row div {
+  display: flex;
+  flex-direction: column;
+}
+
+.proof-row strong {
+  font-size: 1.55rem;
+}
+
+.proof-row span {
+  color: var(--color-muted);
+  font-size: 0.79rem;
+}
+
+/* ================================================================
+   07. HOMEPAGE SECTIONS
+
+   Layout for the professional summary, home-lab series heading,
+   and compact list of cybersecurity case studies.
+================================================================ */
+
+.section-intro {
+  border-block: 1px solid var(--color-border);
+  background: rgba(11, 18, 32, 0.25);
+}
+
+.series-header {
+  display: grid;
+  grid-template-columns: 0.4fr 0.8fr 1.2fr;
+  align-items: start;
+  gap: 25px;
+  margin-bottom: 24px;
+  padding: 22px 0;
+  border-block: 1px solid var(--color-border);
+}
+
+.series-header span {
+  color: var(--color-accent);
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.series-header h3,
+.series-header p {
+  margin: 0;
+}
+
+.case-study-block {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 55px;
+  margin-top: 48px;
+  padding: 35px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.topic-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.topic-list a {
+  padding: 11px 13px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  color: #c8d4e7;
+  background: rgba(255, 255, 255, 0.035);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.topic-list a:hover {
+  border-color: var(--color-border);
+  color: var(--color-accent);
+}
+
+/* ================================================================
+   08. PROJECT CARDS
+
+   Controls featured home-lab projects and the smaller workstation,
+   virtualization, and penetration-testing project cards.
+================================================================ */
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.secondary-projects {
+  margin-top: 22px;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: linear-gradient(
+    180deg,
+    var(--color-panel),
+    var(--color-panel-secondary)
+  );
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+  border-color: #3d5c86;
+  transform: translateY(-4px);
+}
+
+.featured-card {
+  padding-top: 40px;
+}
+
+.accent-card {
+  background: linear-gradient(
+    180deg,
+    rgba(80, 220, 200, 0.12),
+    var(--color-panel-secondary)
+  );
+}
+
+.project-number {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  color: var(--color-muted);
+  font-size: 0.72rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.network-art {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 28px 22px;
+  border-bottom: 1px solid var(--color-border);
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(96, 225, 209, 0.25),
+      transparent 40%
+    ),
+    #0b1d43;
+}
+
+.network-art span {
+  padding: 10px 5px;
+  border: 1px solid rgba(96, 225, 209, 0.35);
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 750;
+  text-align: center;
+}
+
+.security-art {
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(123, 166, 255, 0.3),
+      transparent 42%
+    ),
+    #0b1d43;
+}
+
+.project-content {
+  padding: 24px;
+}
+
+.project-content h3 {
+  margin-bottom: 15px;
+  font-size: 1.55rem;
+}
+
+.project-type {
+  margin-bottom: 8px;
+}
+
+.project-image {
+  width: 100%;
+  height: 190px;
+  border-bottom: 1px solid var(--color-border);
+  object-fit: cover;
+}
+
+.featured-project-image {
+  width: 100%;
+  height: 280px;
+  border-bottom: 1px solid var(--color-border);
+  object-fit: cover;
+  object-position: center;
+}
+
+.check-list {
+  padding: 0;
+  list-style: none;
+}
+
+.check-list li {
+  position: relative;
+  margin: 7px 0;
+  padding-left: 22px;
+}
+
+.check-list li::before {
+  /* Adds the green check mark without placing it in the HTML */
+  position: absolute;
+  left: 0;
+  content: "✓";
+  color: var(--color-accent);
+  font-weight: 900;
+}
+
+/* ================================================================
+   09. SKILLS, EXPERIENCE, AND CREDENTIALS
+
+   Styles the technical-skills grid, employment history, education,
+   certifications, and related recruiter-focused information.
+================================================================ */
+
+.skills-section {
+  border-block: 1px solid var(--color-border);
+  background: var(--color-background-soft);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+}
+
+.skills-grid article {
+  padding: 30px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.skills-grid article:nth-child(odd) {
+  border-right: 1px solid var(--color-border);
+}
+
+.skills-grid article:nth-child(n + 3) {
+  border-bottom: 0;
+}
+
+.skills-grid article > span {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.skills-grid h3 {
   margin: 10px 0;
 }
 
-h2{
-  font-size: 22px;
-  margin-bottom: 10px;
+.experience-card {
+  display: grid;
+  grid-template-columns: 0.35fr 1fr;
+  gap: 50px;
+  padding: 35px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: var(--color-panel);
 }
 
-/* section titles inside Projects */
-.sectionTitle{
-  margin: 18px 0 10px;
-  font-size: 18px;
-  color: rgba(255,255,255,.92);
-}
-
-.subtitle{
-  max-width: 650px;
-  color: var(--muted);
-}
-
-.sectionLead{
-  margin: 0 0 14px;
-  color: rgba(255,255,255,.72);
-  max-width: 850px;
-}
-
-/* =========================================
-   HEADER / NAV
-========================================= */
-header{
-  position: sticky;
-  top: 0;
-  background: #0b1220cc;
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(8px);
-}
-
-.nav{
+.experience-meta {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 0;
+  flex-direction: column;
+  color: var(--color-muted);
+  font-size: 0.85rem;
 }
 
-.brand{ font-weight: 700; }
-
-.navlinks a{
-  margin-left: 14px;
-  color: var(--muted);
-  text-decoration: none;
+.experience-card h3 {
+  margin-bottom: 5px;
+  font-size: 1.75rem;
 }
 
-.navlinks a:hover{ color: var(--text); }
-
-/* =========================================
-   HERO
-========================================= */
-.hero{ padding-top: 40px; }
-
-.tag{
-  display: inline-block;
-  margin-bottom: 12px;
-  color: var(--muted);
+.experience-card li {
+  margin-bottom: 8px;
 }
 
-.hero-grid{
+.company {
+  color: var(--color-accent);
+}
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 70px;
+}
+
+.credential-list {
+  border-top: 1px solid var(--color-border);
+}
+
+.credential-list div {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.credential-list span {
+  color: var(--color-muted);
+}
+
+/* ================================================================
+   10. CONTACT AND FOOTER
+
+   Styles the final contact callout and the copyright/navigation row
+   displayed at the bottom of every page.
+================================================================ */
+
+.contact-section {
+  padding: 30px 0 90px;
+}
+
+.contact-card {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
-  gap: 32px;
   align-items: center;
+  gap: 50px;
+  padding: 45px;
+  border: 1px solid rgba(96, 225, 209, 0.3);
+  border-radius: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(96, 225, 209, 0.1),
+    rgba(123, 166, 255, 0.08)
+  );
 }
 
-.hero-photo{
+.contact-actions {
+  justify-content: flex-end;
+}
+
+footer {
+  padding: 28px 0;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.85rem;
+}
+
+.footer-inner {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
-.hero-photo img{
-  width: 297px;
-  height: 264px;
-  object-fit: cover;
-  border-radius: 30%;
-  border: 3px solid rgba(255,255,255,.15);
-  box-shadow: 0 20px 40px rgba(0,0,0,.4);
-  background: #111;
-}
-
-/* =========================================
-   BUTTONS
-========================================= */
-.buttons{ margin-top: 16px; }
-
-.btn{
-  display: inline-block;
-  padding: 10px 14px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  margin-right: 8px;
+.footer-inner a {
   text-decoration: none;
 }
 
-.btn.primary{
-  background: linear-gradient(135deg, #7aa0ff, #50dcc8);
-  color: #0b1220;
-  border: none;
-  font-weight: 600;
-}
+/* ================================================================
+   11. SHARED PROJECT-PAGE COMPONENTS
 
-/* =========================================
-   CARDS / GRID
-========================================= */
-.card{
-  background: linear-gradient(180deg, var(--panel), var(--panel2));
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 22px;
-}
+   Reusable badges, image galleries, timelines, finding headers, and
+   severity labels shared by the detailed project pages.
+================================================================ */
 
-.grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
-}
-
-/* project hover lift */
-.project{
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.project:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 18px 40px rgba(0,0,0,.35);
-}
-
-/* project links */
-.project-link{
+.tag {
   display: inline-block;
-  margin-top: 12px;
-  color: rgba(255,255,255,.75);
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,.18);
-  padding-bottom: 2px;
 }
 
-.project-link:hover{
-  color: rgba(58, 236, 13, 0.92);
-  border-bottom-color: rgba(255,255,255,.35);
-}
-
-/* project mini gallery */
-.project-gallery{
-  margin-top: 12px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-.project-gallery img{
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.16);
-  box-shadow: 0 10px 20px rgba(0,0,0,.25);
-}
-
-/* =========================================
-this for the picture in the workstation project
-   PROJECT MINI GALLERY PC. i changed the height
-   and the class name to "project-gallery-pc" the 
-   older one is "project-gallery"
-============================================*/
-.project-gallery-pc img{
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.16);
-  box-shadow: 0 10px 20px rgba(0,0,0,.25);
-}
-
-.project-gallery-pc{
-  margin-top: 12px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-/* =========================================
-   SKILLS
-========================================= */
-.skill-card h3{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 18px;
-}
-
-.skill-icon{
-  font-size: 18px;
-  opacity: 0.85;
-  filter: saturate(0.9);
-}
-
-.skill-card:hover .skill-icon{ opacity: 1; }
-
-/* =========================================
-   CERTIFICATIONS
-========================================= */
-.cert-grid{ margin-top: 14px; }
-
-.cert-card p{
-  margin: 10px 0 0;
-  color: rgba(255,255,255,.72);
-}
-
-.cert-top{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.cert-top h3{
-  margin: 0;
-  font-size: 18px;
-}
-
-.cert-icon{
-  font-size: 18px;
-  opacity: 0.85;
-}
-
-/* =========================================
-   EXPERIENCE / EDUCATION
-========================================= */
-.exp-subtitle,
-.edu-subtitle{
-  margin: 6px 0 12px;
-  color: rgba(255,255,255,.70);
-  font-size: 14px;
-}
-
-.exp-card ul{ margin: 0 0 0 18px; }
-.exp-card li{ margin: 8px 0; }
-
-.edu-card h3{ margin: 0 0 6px; }
-
-/* =========================================
-   CAPSTONE PAGE HELPERS (keep for capstone.html)
-========================================= */
-.badge-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:12px;
-}
-
-.badge{
-  font-size: 12px;
+.badge {
   padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.06);
-  color: rgba(255,255,255,.85);
+  border: 1px solid var(--color-border);
+  border-radius: 99px;
+  color: #cad5e6;
+  font-size: 0.76rem;
 }
 
-.timeline{
-  display:grid;
-  grid-template-columns: 1fr;
+.project-gallery,
+.project-gallery-pc {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.project-gallery img,
+.project-gallery-pc img {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.timeline {
+  display: grid;
   gap: 14px;
 }
 
-.timeline-item h3{ margin-top: 0; }
-
-.finding-top{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
+.finding-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.sev{
-  font-size: 12px;
+.sev {
   padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 99px;
+  font-size: 0.72rem;
+  font-weight: 800;
 }
 
-.sev-high{ background: rgba(255, 90, 90, .15); color: rgba(255,255,255,.92); }
-.sev-med{ background: rgba(255, 190, 90, .15); color: rgba(255,255,255,.92); }
-.sev-low{ background: rgba(90, 255, 170, .12); color: rgba(255,255,255,.92); }
-
-.muted{ color: rgba(255,255,255,.72); }
-
-/* =========================================
-   FOOTER
-========================================= */
-footer{
-  padding: 30px 0;
-  text-align: center;
-  color: var(--muted);
-  font-size: 13px;
+.sev-high {
+  background: #8f3342;
 }
 
-/* =========================================
-   RESPONSIVE
-========================================= */
-@media (max-width: 900px){
-  .hero-grid{
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .hero-photo{
-    order: -1;
-    margin-bottom: 20px;
-  }
+.sev-med {
+  background: #8b642d;
 }
 
-@media (max-width: 700px){
-  .project-gallery{
-    grid-template-columns: 1fr;
-  }
-  .project-gallery img{
-    height: 170px;
-  }
+.sev-low {
+  background: #276953;
 }
 
-/* =========================
-   PROJECT THUMBNAILS
-   (Small screenshot/cover at top of project cards)
-========================= */
-.project-thumb{
+/* ================================================================
+   12. HOME-LAB TOPOLOGY AND TABLES
+
+   Styles the VLAN table, physical network diagram, device nodes,
+   connection arrows, and links between the two home-lab projects.
+================================================================ */
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+.network-table {
   width: 100%;
-  height: 230px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.16);
-  box-shadow: 0 12px 26px rgba(0,0,0,.25);
-  margin-bottom: 12px;
+  min-width: 650px;
+  border-collapse: collapse;
 }
 
+.network-table th,
+.network-table td {
+  padding: 13px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+}
+
+.network-table th {
+  color: var(--color-accent);
+}
+
+.topology {
+  padding: 25px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: var(--color-panel);
+  text-align: center;
+}
+
+.topology-node {
+  max-width: 360px;
+  margin-inline: auto;
+  padding: 13px;
+  border: 1px solid var(--color-border);
+  border-radius: 11px;
+  background: rgba(11, 29, 67, 0.8);
+  font-weight: 750;
+}
+
+.topology-node small {
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+.topology-node-primary {
+  border-color: rgba(96, 225, 209, 0.45);
+}
+
+.topology-management {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.topology-connection-label {
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.topology-controller {
+  border-color: var(--color-accent-blue);
+  background: linear-gradient(
+    135deg,
+    rgba(122, 160, 255, 0.2),
+    rgba(80, 220, 200, 0.12)
+  );
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.24);
+}
+
+.topology-arrow {
+  margin: 7px;
+  color: var(--color-accent);
+  font-size: 1.2rem;
+}
+
+.topology-branches {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.topology-branches .topology-node {
+  width: 100%;
+  font-size: 0.87rem;
+}
+
+.project-next {
+  margin-top: 18px;
+  padding: 16px;
+  border-left: 3px solid var(--color-accent);
+  background: rgba(96, 225, 209, 0.06);
+}
+
+/* Completed rack photograph displayed near the project objective. */
+.project-photo {
+  overflow: hidden;
+  margin: 22px 0 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: var(--color-panel);
+}
+
+.project-photo img {
+  width: 100%;
+  max-height: 620px;
+  object-fit: cover;
+}
+
+.project-photo figcaption {
+  padding: 13px 16px;
+  color: var(--color-muted);
+  font-size: 0.86rem;
+}
+
+/* Hardware inventory cards with one image area per device type. */
+.device-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.device-card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.device-card > a {
+  display: block;
+}
+
+.device-photo,
+.device-photo-placeholder {
+  width: 100%;
+  height: 220px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.device-photo {
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.device-card > a:hover .device-photo {
+  transform: scale(1.025);
+}
+
+.device-photo-power {
+  object-position: center;
+}
+
+.device-photo-placeholder {
+  display: grid;
+  place-content: center;
+  gap: 5px;
+  padding: 20px;
+  color: var(--color-muted);
+  background:
+    linear-gradient(135deg, rgba(122, 160, 255, 0.12), rgba(80, 220, 200, 0.08)),
+    #0b1d43;
+  text-align: center;
+}
+
+.device-photo-placeholder span {
+  color: var(--color-text);
+  font-weight: 800;
+}
+
+.device-photo-placeholder small {
+  font-size: 0.8rem;
+}
+
+.device-card-content {
+  padding: 22px;
+}
+
+.device-card-content h3 {
+  margin-bottom: 10px;
+}
+
+/* Full-resolution configuration evidence from the Omada controller. */
+.evidence-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.evidence-card {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-medium);
+  background: var(--color-panel);
+}
+
+.evidence-card-wide {
+  grid-column: 1 / -1;
+}
+
+.evidence-card a {
+  display: block;
+  overflow: hidden;
+}
+
+.evidence-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.evidence-card a:hover img {
+  transform: scale(1.018);
+}
+
+.evidence-card figcaption {
+  padding: 12px 14px;
+  color: var(--color-muted);
+  font-size: 0.86rem;
+}
+
+/* ================================================================
+   13. RESPONSIVE STYLES
+
+   Adjusts navigation, grids, cards, galleries, and spacing for
+   tablets and phones. Desktop styles above remain the default.
+================================================================ */
+
+/* Stack wide layouts and simplify navigation below 900 pixels. */
+@media (max-width: 900px) {
+  .navlinks a:not(.nav-cta) {
+    display: none;
+  }
+
+  .hero-grid,
+  .split-intro,
+  .section-heading,
+  .case-study-block,
+  .experience-card,
+  .credentials-grid,
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 60px;
+  }
+
+  .profile-card {
+    max-width: 360px;
+  }
+
+  .featured-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-actions {
+    justify-content: flex-start;
+  }
+
+  .series-header {
+    grid-template-columns: 1fr;
+  }
+
+  .series-header span {
+    margin-bottom: -15px;
+  }
+}
+
+/* Use single-column layouts and smaller spacing below 620 pixels. */
+@media (max-width: 620px) {
+  :root {
+    --container-gutter: 28px;
+    --section-spacing: 65px;
+  }
+
+  .brand span:last-child {
+    display: none;
+  }
+
+  .hero {
+    padding: 48px 0;
+  }
+
+  .proof-row {
+    gap: 12px;
+  }
+
+  .proof-row strong {
+    font-size: 1.25rem;
+  }
+
+  .network-art {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .skills-grid,
+  .topic-list {
+    grid-template-columns: 1fr;
+  }
+
+  .skills-grid article,
+  .skills-grid article:nth-child(odd) {
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .skills-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .credential-list div {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .contact-card {
+    padding: 28px;
+  }
+
+  .contact-actions .btn {
+    width: 100%;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .topology-branches,
+  .project-gallery,
+  .project-gallery-pc,
+  .evidence-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .evidence-card-wide {
+    grid-column: auto;
+  }
+}

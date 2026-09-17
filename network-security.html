@@ -55,6 +55,23 @@
       <article class="card timeline-item"><h3>Security-Control Tuning</h3><p>Evaluated Suricata behavior after legitimate management traffic was affected and adjusted the implementation approach to preserve availability while improving visibility.</p></article>
     </div></section>
 
+    <section id="evidence">
+      <p class="section-kicker">Implementation evidence</p>
+      <h2>Omada configuration and validation screenshots.</h2>
+      <p class="sectionLead">Select any screenshot to open the full-resolution version. The gallery documents the deployed topology, connected clients, wireless operation, VLAN views, and switch-port assignments.</p>
+      <div class="evidence-gallery">
+        <figure class="evidence-card"><a href="images/homelab/omada-topology-overview.png" target="_blank" rel="noopener"><img src="images/homelab/omada-topology-overview.png" alt="Omada topology overview showing the gateway, two access points, controller, and managed switch" loading="lazy" /></a><figcaption>Initial Omada topology overview</figcaption></figure>
+        <figure class="evidence-card"><a href="images/homelab/omada-topology-labeled.png" target="_blank" rel="noopener"><img src="images/homelab/omada-topology-labeled.png" alt="Omada topology with infrastructure devices labeled" loading="lazy" /></a><figcaption>Labeled infrastructure topology</figcaption></figure>
+        <figure class="evidence-card"><a href="images/homelab/omada-device-topology.png" target="_blank" rel="noopener"><img src="images/homelab/omada-device-topology.png" alt="Expanded Omada topology showing access points, cameras, printer, and wired clients" loading="lazy" /></a><figcaption>Expanded device topology</figcaption></figure>
+        <figure class="evidence-card"><a href="images/homelab/omada-wireless-clients.png" target="_blank" rel="noopener"><img src="images/homelab/omada-wireless-clients.png" alt="Omada wireless client signal distribution dashboard" loading="lazy" /></a><figcaption>Wireless client signal distribution</figcaption></figure>
+        <figure class="evidence-card"><a href="images/homelab/omada-wireless-performance.png" target="_blank" rel="noopener"><img src="images/homelab/omada-wireless-performance.png" alt="Omada wireless traffic and channel utilization dashboard" loading="lazy" /></a><figcaption>Wireless traffic and channel utilization</figcaption></figure>
+        <figure class="evidence-card"><a href="images/homelab/omada-default-vlan-topology.png" target="_blank" rel="noopener"><img src="images/homelab/omada-default-vlan-topology.png" alt="Omada default VLAN topology view" loading="lazy" /></a><figcaption>Default VLAN topology</figcaption></figure>
+        <figure class="evidence-card"><a href="images/homelab/omada-default-vlan-ports.png" target="_blank" rel="noopener"><img src="images/homelab/omada-default-vlan-ports.png" alt="Omada switch-port map for the default VLAN" loading="lazy" /></a><figcaption>Default VLAN switch-port view</figcaption></figure>
+        <figure class="evidence-card"><a href="images/homelab/omada-home-vlan-ports.png" target="_blank" rel="noopener"><img src="images/homelab/omada-home-vlan-ports.png" alt="Omada switch-port map for the HOME VLAN" loading="lazy" /></a><figcaption>HOME VLAN switch-port view</figcaption></figure>
+        <figure class="evidence-card evidence-card-wide"><a href="images/homelab/omada-complete-topology.png" target="_blank" rel="noopener"><img src="images/homelab/omada-complete-topology.png" alt="Complete Omada network topology showing infrastructure and endpoint relationships" loading="lazy" /></a><figcaption>Complete deployed topology</figcaption></figure>
+      </div>
+    </section>
+
     <section><p class="section-kicker">Outcome</p><h2>A working segmented environment with documented controls.</h2><div class="grid"><article class="card"><h3>Technical Result</h3><p>Home, lab, camera, NAS, management, and guest functions operate as separate zones with deliberate access paths.</p></article><article class="card"><h3>Operational Result</h3><p>The environment has a documented addressing scheme, switch-port design, service requirements, and troubleshooting history for repeatable changes.</p></article><article class="card"><h3>Skills Demonstrated</h3><p>Network design, VLAN trunking, firewall administration, DHCP, Wi-Fi segmentation, packet analysis, IDS/IPS evaluation, testing, and technical documentation.</p></article></div>
       <p class="project-next"><strong>Related project:</strong> <a href="homelab.html">Home Lab Part 1 — Physical Network Infrastructure →</a></p>
     </section>
